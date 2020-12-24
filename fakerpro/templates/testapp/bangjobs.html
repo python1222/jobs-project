@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Banglore job information</title>
+    <link rel="stylesheet" href="{% static 'css/demo1.css' %}">
+</head>
+<body>
+<h1 align="center">Banglore job information</h1><hr>
+<img src="{% static 'images/banglore1.jpg' %} " width="440px" height="250px">
+<img src="{% static 'images/banglore2.jpg' %}"width="440px" height="250px">
+<img src="{% static 'images/banglore3.jpg' %}"width="440px" height="250px"><hr>
+{% if bangjob_record %}
+    <table id="tab" border="1px" align="center">
+      <thead>
+         <th>date</th>
+         <th>company</th>
+         <th>title </th>
+         <th> eligibility </th>
+         <th>email </th>
+         <th>phonenumber </th>
+      </thead>
+    {% for job in bangjob_record %}
+        <tr>
+          <td>{{ job.date  }}</td>
+          <td>{{ job.company }}</td>
+          <td>{{job.title  }}</td>
+          <td>{{ job.eligibility }}</td>
+          <td>{{ job.email }}</td>
+          <td>{{job.phonenumber  }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <p>no jobs found</p>
+
+{% endif %}
+
+</body>
+</html>

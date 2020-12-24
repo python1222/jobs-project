@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Pune job information</title>
+    <link rel="stylesheet" href="{% static 'css/demo1.css' %}">
+</head>
+<body>
+<h1 align="center">Pune job information</h1><hr>
+<img src="{% static 'images/pune3.jpg' %} " width="440px" height="250px">
+<img src="{% static 'images/pune2.jpg' %}"width="440px" height="250px">
+<img src="{% static 'images/pune1.jpg' %}"width="440px" height="250px"><hr>
+{% if punejob_record %}
+    <table id="tab" border="1px" align="center">
+      <thead>
+         <th>date</th>
+         <th>company</th>
+         <th>title </th>
+         <th> eligibility </th>
+         <th>email </th>
+         <th>phonenumber </th>
+      </thead>
+    {% for job in punejob_record %}
+        <tr>
+          <td>{{ job.date  }}</td>
+          <td>{{ job.company }}</td>
+          <td>{{job.title  }}</td>
+          <td>{{ job.eligibility }}</td>
+          <td>{{ job.email }}</td>
+          <td>{{job.phonenumber  }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <p>no jobs found</p>
+
+{% endif %}
+
+</body>
+</html>
